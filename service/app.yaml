@@ -1,0 +1,9 @@
+runtime: python37
+env: standard
+instance_class: F1
+automatic_scaling:
+    min_instances: 0
+inbound_services:
+    - warmup
+service: default
+entrypoint: gunicorn -c gunicorn.conf.py -b :$PORT "wsgi:app"
